@@ -11,6 +11,8 @@ export class HomeComponent {
     error: string;
     response: {};
     sourceCode: string = '';
+    styleMistakes: Array<any> = [];
+    cursorPosition: {row: number, col: number} = {row: 1, col: 1};
 
     constructor(private apiService: ApiService, private http: Http) {}
 
@@ -25,10 +27,6 @@ export class HomeComponent {
                 });
     }
 
-    onChange(data) {
-        this.sourceCode = data;
-    }
-
     verifyCode() {
         this.http
             .post('/api/verify', {
@@ -36,11 +34,16 @@ export class HomeComponent {
             })
             .subscribe(
                 data => {
-                    console.log(data.json());
+                    this.styleMistakes = data.json();
+                    console.log(this.styleMistakes);
                 },
                 error => {
                     console.log(error);
                 }
             );
+    }
+
+    fixCRLF() {
+        this.sourceCode = this.sourceCode.replace('\r\n', '\n'); 
     }
 }
