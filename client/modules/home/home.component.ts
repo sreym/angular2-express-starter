@@ -10,7 +10,7 @@ import { Http, Response } from "@angular/http";
 export class HomeComponent {
     error: string;
     response: {};
-    sourceCode: string = '';
+    sourceCode: string = '\n';
     styleMistakes: Array<any> = [];
     cursorPosition: {row: number, col: number} = {row: 1, col: 1};
 
