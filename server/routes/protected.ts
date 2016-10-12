@@ -10,6 +10,8 @@ let eslintCfg = require('eslint-config-airbnb');
 eslintCfg = ConfigFile.applyExtends(eslintCfg, '');
 eslintCfg.rules['strict'] = "off";
 eslintCfg.rules['no-console'] = "off";
+eslintCfg.rules['import/no-extraneous-dependencies'] = "off";
+eslintCfg.rules['import/no-unresolved'] = "off";
 
 protectedRouter.post('/verify', (request: Request, response: Response) => {
     response.json(eslint.linter.verify(request.body.code, eslintCfg));
