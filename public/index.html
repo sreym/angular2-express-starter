@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="assets/css/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+        <script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+
         <!-- 1. Load libraries -->
         <!-- Polyfill(s) for older browsers -->
         <script src="assets/js/vendor/shim.min.js"></script>
@@ -18,10 +20,20 @@
 
         <!-- 2. Configure SystemJS -->
         <!-- Development mod -->
-        <!--<script src="systemjs.config.js"></script>
-        <script>
+        <script src="systemjs.config.js"></script>
+        <!--<script>
             System.import('app').catch(function(err) { console.error(err); });
         </script>-->
+
+        <style type="text/css" media="screen">
+            #editor { 
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        </style>
     </head>
 
     <body>

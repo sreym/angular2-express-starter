@@ -6,10 +6,12 @@
 			<message-content>{{error}}</message-content>
 		</sm-message>
 
-<pre>
-{{ response | json}}
-</pre>
+		<pre>
+		{{ response | json}}
+		</pre>
 	</sm-segment>
+
+<div class="editor" ace (textChanged)="onChange($event)"></div>
 </div>
 
 <profile></profile>

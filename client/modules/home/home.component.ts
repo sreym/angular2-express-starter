@@ -3,7 +3,8 @@ import { ApiService } from "../../service/api.service";
 
 @Component({
     selector: "home",
-    templateUrl: `client/modules/home/home.component.html`
+    templateUrl: `client/modules/home/home.component.html`,
+    styleUrls: ['client/modules/home/home.component.css'],
 })
 export class HomeComponent {
     error: string;
@@ -20,5 +21,9 @@ export class HomeComponent {
                     this.error = error.message;
                     setTimeout(() => this.error = null, 4000)
                 });
+    }
+
+    onChange(data) {
+        console.log(data);
     }
 }
