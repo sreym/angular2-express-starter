@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ApiService } from "../../service/api.service";
+import { Http, Response } from "@angular/http";
 
 @Component({
     selector: "home",
@@ -9,8 +10,9 @@ import { ApiService } from "../../service/api.service";
 export class HomeComponent {
     error: string;
     response: {};
+    sourceCode: string = '';
 
-    constructor(private apiService: ApiService) {}
+    constructor(private apiService: ApiService, private http: Http) {}
 
     protected() {
         this.apiService
@@ -24,6 +26,21 @@ export class HomeComponent {
     }
 
     onChange(data) {
-        console.log(data);
+        this.sourceCode = data;
+    }
+
+    verifyCode() {
+        this.http
+            .post('/api/verify', {
+                code: this.sourceCode
+            })
+            .subscribe(
+                data => {
+                    console.log(data.json());
+                },
+                error => {
+                    console.log(error);
+                }
+            );
     }
 }
