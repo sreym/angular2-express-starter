@@ -19,6 +19,7 @@ export class AceDirective {
 
   set cursorPosition(value) {
     this.editor.selection.moveCursorTo(value.row, value.col);
+    this.editor.focus();
   }
 
   constructor(el: ElementRef, renderer: Renderer) {
